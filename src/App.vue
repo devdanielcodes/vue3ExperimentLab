@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+   <Nav />
+  <router-view v-slot="trans">
+    <transition name="v">
+      <component :is="trans.Component"></component>
+    </transition>
+  </router-view>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/nav.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    Nav
+  },
+  data() {
+    return {
+     
+    }
+  },
+  
 }
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.v-enter-active, .v-leave-active{
+  transition: all .5s;
+}
+.v-enter-active{
+  transition-delay: .5s;
+}
+.v-enter-from, .v-leave-to{
+  opacity: 0
+}
+.v-leave-from, .v-enter-to{
+  opacity: 1
 }
 </style>
