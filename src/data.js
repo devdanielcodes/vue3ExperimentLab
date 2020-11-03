@@ -7,7 +7,7 @@ const state = reactive({
     
 })
 
-export default function manage(){
+function manage(){
     state.myName
     state.melo
     state.nu
@@ -20,7 +20,6 @@ export default function manage(){
         fetch('https://jsonplaceholder.typicode.com/todos')
         .then(response => response.json())
         .then((data) => {
-            console.log(data)
             state.nu = data
         })
     }
@@ -31,3 +30,5 @@ export default function manage(){
         getTodo,
     }
 }
+
+export const myData = manage()

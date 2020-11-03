@@ -15,16 +15,16 @@
 
 <script setup>
 import store from '../store/store'
-import manage from '@/data'
+import { myData } from '@/data'
 import { ref } from 'vue'
 
       export const users = store.state.users
 
-      export const meo = manage().melo
+      export const meo = myData.melo
 
-      export const dada = manage().getTodo()
+      export const dada = myData.getTodo()
 
-      export const data = manage().nu
+      export const data = myData.nu
 
       export const change = () => {
         meo.value = 12

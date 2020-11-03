@@ -1,20 +1,20 @@
 <template>
     <h1 v-on:click="name.add">
-        {{data}}
-        {{name.myName}}
+        {{data}} -
+        {{name}}
     </h1>
 </template>
 
 <script>
 
 import store from '../store/store'
-import manage from '@/data'
+import {myData} from '@/data'
 import { ref } from 'vue'
 
 export default {
     setup () {
         const data = store.state.data
-        const name = ref(manage())
+        const name = ref(myData.myName)
 
         function incre(){
             name.value++
